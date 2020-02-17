@@ -1,3 +1,9 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  # この記述を変更
+  root :to => 'oauth_test#index'
+  devise_for :users, controllers: {
+    registrations: "users/registrations",
+    # この記述を追記
+    omniauth_callbacks: "users/omniauth_callbacks"
+  }
 end
